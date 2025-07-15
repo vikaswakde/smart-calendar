@@ -1,5 +1,18 @@
-import Image from "next/image";
+"use client";
+
+import { Authenticated, Unauthenticated, useQuery } from "convex/react";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
-  return <div>smart cal</div>;
+  return (
+    <>
+      <Authenticated>
+        <UserButton />
+        <div>Hello you are authenticated</div>
+      </Authenticated>
+      <Unauthenticated>
+        <SignInButton />
+      </Unauthenticated>
+    </>
+  );
 }
